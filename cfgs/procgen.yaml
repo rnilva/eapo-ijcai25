@@ -1,0 +1,44 @@
+algo: PPO
+
+ppo_config: 
+  learning_rate: 5.0e-4
+  n_steps: 256
+  batch_size: 2048
+  n_epochs: 3
+  gamma: 0.995
+  gae_lambda: 0.8
+  clip_range: 0.1
+  normalize_advantage: true
+  ent_coef: 0.00
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  use_sde: false
+  sde_sample_freq: 0
+  policy_kwargs:
+    ortho_init: true
+  tensorboard_log: null
+
+eapo_config:
+  tau: 0.02
+  c2: 0.5
+  e_gamma: 0.9
+  e_lambda: 0.0
+  tau_on_entropy: false
+  augmented_reward: false
+  use_entropy_advantage: true
+
+trpo_config: {}
+
+n_envs: 64
+procgen: true
+env: BossfightEasy-v0
+
+norm_reward: false
+pop_art: true
+pop_art_beta: 0.03
+
+eval_freq: 2000
+
+verbose: 1
+eval_verbose: 1
+

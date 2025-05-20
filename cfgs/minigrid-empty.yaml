@@ -1,0 +1,49 @@
+algo: PPO
+env: MiniGrid-Empty-8x8-v0
+minigrid: true
+env_kwargs:
+  minigrid_wrapper: FullyObsWrapper
+
+ppo_config: 
+  learning_rate: 0.0005
+  n_steps: 128
+  batch_size: 1024
+  n_epochs: 4
+  gamma: 0.995
+  gae_lambda: 0.995
+  clip_range: 0.2
+  clip_range_vf: null
+  normalize_advantage: true
+  ent_coef: 0.0
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  use_sde: false
+  sde_sample_freq: 0
+  tensorboard_log:
+  policy_kwargs:
+    ortho_init: true
+
+eapo_config: 
+  use_entropy_advantage: true
+  augmented_reward: false
+  tau: 0.003
+  c2: 1.0
+  e_gamma: 0.99
+  e_lambda: 0.0
+
+trpo_config: {}
+
+n_envs: 16
+norm_obs: false
+norm_reward: false
+pop_art: true
+pop_art_beta: 0.03
+handle_timeout: true
+
+total_timesteps: 4000000
+eval_freq: 20000000
+n_eval_envs: 16
+
+eval_verbose: 1
+verbose: 1
+
