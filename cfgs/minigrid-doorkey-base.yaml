@@ -1,0 +1,47 @@
+algo: PPO
+env: MiniGrid-DoorKey-8x8-v0
+minigrid: true
+
+ppo_config: 
+  learning_rate: 0.001
+  n_steps: 128
+  batch_size: 1024
+  n_epochs: 4
+  gamma: 0.99
+  gae_lambda: 0.99
+  clip_range: 0.2
+  clip_range_vf: null
+  normalize_advantage: true
+  ent_coef: 1.e-4
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  use_sde: false
+  sde_sample_freq: 0
+  tensorboard_log:
+  policy_kwargs:
+    ortho_init: true
+
+eapo_config: 
+  use_entropy_advantage: false
+  augmented_reward: false
+  tau: 0.0
+  c2: 0.0
+  e_gamma: 0.0
+  e_lambda: 0.0
+
+trpo_config: {}
+
+n_envs: 64
+norm_obs: false
+norm_reward: false
+pop_art: true
+pop_art_beta: 0.03
+handle_timeout: true
+
+total_timesteps: 5000000
+eval_freq: 20000000
+n_eval_envs: 16
+
+eval_verbose: 1
+verbose: 1
+

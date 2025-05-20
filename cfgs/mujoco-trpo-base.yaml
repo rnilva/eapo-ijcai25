@@ -1,0 +1,52 @@
+algo: TRPO
+
+ppo_config: {}
+     
+trpo_config: 
+  cg_max_steps: 15
+  cg_damping: 0.1
+  line_search_shrinking_factor: 0.8
+  line_search_max_iter: 10
+  n_critic_updates: 4
+  sub_sampling_factor: 1
+  target_kl: 0.07
+  learning_rate: 5.0e-4
+  n_steps: 64
+  batch_size: 1024
+  gamma: 0.99
+  gae_lambda: 0.95
+  normalize_advantage: true
+  use_sde: false
+  sde_sample_freq: 0
+  policy_kwargs:
+    ortho_init: true
+    net_arch:
+      pi: [64, 64]
+      vf: [128, 128]
+ 
+eapo_config:
+  tau: 0.0
+  c2: 0.0
+  e_gamma: 0.0
+  e_lambda: 0.0
+  use_entropy_advantage: false
+  tau_on_entropy: false
+
+n_envs: 64
+procgen: false
+env: Ant-v4
+norm_obs: true
+handle_timeout: true
+action_discretization: true
+discretization_num_atomics: 7
+
+norm_reward: false
+pop_art: true
+pop_art_beta: 0.03
+
+total_timesteps: 10000000
+eval_freq: 2000
+
+verbose: 1
+eval_verbose: 1
+
